@@ -1,0 +1,64 @@
+-- at4.txt
+-- Scenario where valid and invalid commands are entered in the command line.
+
+
+-- add physicians
+add_physician	   (1, "Physician_1", generalist)
+
+--not a valid command
+add_physician	   (1, "Physician_2", specialist)
+
+add_physician	   (2, "Physician_2", specialist)
+
+
+
+-- add patients
+add_patient        (5, "Patient_A")
+add_patient        (6, "Patient_B")
+
+
+
+--add_medications
+add_medication     (1, ["Wafarin", pill, 1.0, 6.0])
+add_medication     (2, ["Sulfamethizole", pill, 200.0, 500.0])
+
+-- not a valid command
+remove_medicine(3,5)
+
+
+-- add interactions
+add_interaction    (1,2)
+
+-- not a valid command
+add_interaction    (1, 5)
+
+
+-- add prescriptions
+new_prescription   (1, 1, 5)
+new_prescription   (2, 2, 6)
+
+
+
+
+-- add Wafarin 5.5 mg to prescription id 1
+add_medicine       (1, 1, 5.5)
+
+
+-- add Sulfamethizole 300.5 mg to prescription id 1
+add_medicine       (1, 2, 300.5)
+
+-- not a valid command
+-- add Wafarin 5.5 mg to prescription id 2
+add_medicine       (1, 1, 5.5)
+
+-- not a valid command
+-- add Sulfamethizole 300.5 mg to prescription id 2
+add_medicine       (1, 2, 300.5)
+
+-- not a valid command
+prescriptions_q(5)
+
+-- not a valid command
+add_medication     (2, ["Sulfamethizole", pill, 200.0, 500.0])
+
+

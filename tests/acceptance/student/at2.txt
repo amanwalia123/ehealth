@@ -1,0 +1,37 @@
+-- at2.txt
+-- Scenario where new interaction is added only after removing interacting medications from a given prescription.
+
+
+-- add physicans
+add_physician	   (1, "Physician_A", generalist)
+
+-- add patients
+add_patient        (1, "Patient_C")
+
+--add_medication  
+add_medication     (1, ["Wafarin", pill, 1.0, 6.0])
+add_medication     (2, ["Sulfamethizole", pill, 200.0, 500.0])
+
+-- queries on medications 1 and 2
+prescriptions_q(1)
+prescriptions_q(2)
+
+-- prescription id 1: generalist Galen prescribes for Dora
+new_prescription   (1, 1, 1)
+
+-- add Wafarin 5.5 mg to prescription id 1
+add_medicine       (1, 1, 5.5)
+
+-- add Sulfamethizole 300.5 mg to prescription id 1
+add_medicine       (1, 2, 300.5)
+
+
+--add interaction
+add_interaction    (1,2)
+
+-- remove medicines from prescription id 1
+remove_medicine(1, 1)
+remove_medicine(1, 2)
+
+
+

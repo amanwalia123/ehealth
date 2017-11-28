@@ -1,0 +1,37 @@
+-- at3.txt
+-- Scenario where a generalist prescribes an interacting medication followed by a specialist who also prescribes an interacting medication.
+
+
+-- add physicians
+add_physician	   (1, "Physician_1", generalist)
+
+
+add_physician	   (2, "Physician_2", specialist)
+
+-- add patients
+add_patient        (5, "Patient_A")
+
+
+--add_medications
+add_medication     (1, ["Wafarin", pill, 1.0, 6.0])
+add_medication     (2, ["Sulfamethizole", pill, 200.0, 500.0])
+
+-- add interactions
+add_interaction    (1,2)
+
+
+-- add prescriptions
+new_prescription   (1, 1, 5)
+new_prescription   (2, 2, 5)
+
+-- add Wafarin 5.5 mg to prescription id 1
+add_medicine       (1, 1, 5.5)
+
+-- add Sulfamethizole 300.5 mg to prescription id 2
+add_medicine       (1, 2, 300.5)
+
+
+
+-- dangerous prescription report
+dpr_q
+
